@@ -26,3 +26,11 @@ jobs:
 
       - name: Run tests and calculate grade
         run: python .github/scripts/grade.py
+
+      - name: Autograding
+        uses: classroom-resources/autograding-command-gradable-action@v1
+        if: always()
+        with:
+          test-name: Autograding
+          command: python .github/scripts/grade.py
+          timeout: 5
